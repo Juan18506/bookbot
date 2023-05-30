@@ -8,7 +8,7 @@ def get_num_words(text: str) -> int:
     return len(words)
 
 
-def get_chars_dict(text: str) -> int:
+def get_chars_dict(text: str) -> dict[str]:
     text = text.lower()
     chars = {}
     for char in text:
@@ -18,12 +18,11 @@ def get_chars_dict(text: str) -> int:
             chars[char] = 1
     return chars
 
-
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     chars_dict = get_chars_dict(text)
-    print(f"Chars dict: {chars_dict}")
+    print(chars_dict)
 
 
 main()
