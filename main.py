@@ -18,8 +18,10 @@ def get_chars_dict(text: str) -> dict[str]:
             chars[char] = 1
     return chars
 
+
 def sort_list_key(char: dict) -> int:
     return char["num"]
+
 
 def char_dict_to_sorted_list(chars_dict: dict) -> list:
     sorted_list = []
@@ -28,22 +30,23 @@ def char_dict_to_sorted_list(chars_dict: dict) -> list:
     sorted_list.sort(reverse=True, key=sort_list_key)
     return sorted_list
 
+
 def get_book_report(path) -> None:
     text = get_book_text(path)
     num_words = get_num_words(text)
     chars_dict = get_chars_dict(text)
     chars_sorted_list = char_dict_to_sorted_list(chars_dict)
-    
+
     print(f"--- Begin report of {path} ---")
     print(f"{num_words} words found in the document")
     print()
-    
+
     for char_dict in chars_sorted_list:
         char = char_dict["char"]
         num = char_dict["num"]
         if char.isalpha():
             print(f"The '{char}' character was found {num} times")
-            
+
     print("--- End report ---")
 
 
